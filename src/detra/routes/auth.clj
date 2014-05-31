@@ -32,7 +32,7 @@
       (do
         (db/create-user {:id id :pass (crypt/encrypt pass)})
         (session/put! :user-id id)
-        (resp/redirect "/"))
+        (resp/redirect "/main"))
       (catch Exception ex
         (vali/rule false [:id (.getMessage ex)])
         (register)))
@@ -51,7 +51,7 @@
   (let [user (db/get-user id)]
     (if (and user (crypt/compare pass (:pass user)))
       (session/put! :user-id id))
-    (resp/redirect "/")))
+    (resp/redirect "/main")))
 
 (defn logout []
   (session/clear!)
