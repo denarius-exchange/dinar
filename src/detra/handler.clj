@@ -1,5 +1,5 @@
 (ns detra.handler
-  (:require [compojure.core :refer [defroutes]]
+  (:require [compojure.core :refer [defroutes GET]]
             [detra.routes.home :refer [home-routes]]
             [detra.middleware :as middleware]
             [noir.util.middleware :refer [app-handler]]
@@ -8,12 +8,19 @@
             [taoensso.timbre.appenders.rotor :as rotor]
             [selmer.parser :as parser]
             [environ.core :refer [env]]
+            [detra.layout :as layout]
             [detra.routes.auth :refer [auth-routes]]
             [detra.db.schema :as schema]
             [detra.routes.cljsexample :refer [cljs-routes]]))
 
+
+
+(defn main-page []
+  (layout/render "main.html"))
+
 (defroutes
   app-routes
+  (GET "/main" [] (main-page))
   (route/resources "/")
   (route/not-found "Not Found"))
 
