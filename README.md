@@ -1,6 +1,6 @@
-# detra
+# Detra
 
-FIXME
+Denarius Trading Web Front End
 
 ## Prerequisites
 
