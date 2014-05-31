@@ -1,0 +1,64 @@
+<html>
+<head>
+    <style type="text/css">
+        body {
+        margin: 0px;
+        padding: 0px;
+        }
+        #container {
+        width : 600px;
+        margin: 8px auto;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="/lib/css/envision.min.css" />
+</head>
+<body>
+<div id="container"></div>
+<!--[if IE]>
+<script type="text/javascript" src="/static/lib/FlashCanvas/bin/flashcanvas.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/lib/js/envision.min.js"></script>
+<script type="text/javascript">
+      (function () {
+
+        var
+          container = document.getElementById('container'),
+          x = [],
+          y1 = [],
+          y2 = [],
+          data, options, i;
+
+        // Data Format:
+        data = [
+          [x, y1], // First Series
+          [x, y2]  // Second Series
+        ];
+
+        // Sample the sine function for data
+        for (i = 0; i < 4 * Math.PI; i += 0.05) {
+          x.push(i);
+          y1.push(Math.sin(i));
+          y2.push(Math.sin(i + Math.PI));
+        }
+        x.push(4 * Math.PI)
+        y1.push(Math.sin(4 * Math.PI));
+        y2.push(Math.sin(4 * Math.PI));
+
+        // TimeSeries Template Options
+        options = {
+          // Container to render inside of
+          container : container,
+          // Data for detail (top chart) and summary (bottom chart)
+          data : {
+            detail : data,
+            summary : data
+          }
+        };
+
+        // Create the TimeSeries
+        new envision.templates.TimeSeries(options);
+
+      })();
+    </script>
+</body>
+</html>
