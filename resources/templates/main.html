@@ -1,19 +1,6 @@
-<html>
-<head>
-    <style type="text/css">
-        body {
-        margin: 0px;
-        padding: 0px;
-        }
-        #container {
-        width : 600px;
-        margin: 8px auto;
-        }
-    </style>
-    <link rel="stylesheet" type="text/css" href="/css/envision.min.css" />
-</head>
-<body>
-<div id="container"></div>
+{% extends "templates/base-logged.html" %}
+{% block content %}
+<div id="container_pricechart"></div>
 <!--[if IE]>
 <script type="text/javascript" src="/static/lib/FlashCanvas/bin/flashcanvas.js"></script>
 <![endif]-->
@@ -22,7 +9,7 @@
       (function () {
 
         var
-          container = document.getElementById('container'),
+          container = document.getElementById('container_pricechart'),
           x = [],
           y1 = [],
           y2 = [],
@@ -60,5 +47,4 @@
 
       })();
     </script>
-</body>
-</html>
+{% endblock %}
