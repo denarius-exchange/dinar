@@ -3,6 +3,8 @@
             [detra.routes.home :refer [home-routes]]
             [detra.middleware :as middleware]
             [noir.util.middleware :refer [app-handler]]
+            [noir.util.route :refer [restricted]]
+            [noir.session :as session]
             [compojure.route :as route]
             [taoensso.timbre :as timbre]
             [taoensso.timbre.appenders.rotor :as rotor]
@@ -20,7 +22,7 @@
 
 (defroutes
   app-routes
-  (GET "/main" [] (main-page))
+  (GET "/main" [] (restricted (main-page)))
   (route/resources "/")
   (route/not-found "Not Found"))
 
@@ -50,13 +52,13 @@
   []
   (timbre/info "detra is shutting down..."))
 
+(defn user-access [request]
+  (session/get :user-id))
+
 (def app
  (app-handler
    [cljs-routes auth-routes home-routes app-routes]
-   :middleware
-   [middleware/template-error-page middleware/log-request]
-   :access-rules
-   []
-   :formats
-   [:json-kw :edn]))
+   :middleware [middleware/template-error-page middleware/log-request]
+   :access-rules [user-access]
+   :formats [:json-kw :edn]))
 
