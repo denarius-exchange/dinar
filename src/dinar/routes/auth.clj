@@ -1,11 +1,11 @@
-(ns detra.routes.auth
+(ns dinar.routes.auth
   (:use compojure.core)
-  (:require [detra.layout :as layout]
+  (:require [dinar.layout :as layout]
             [noir.session :as session]
             [noir.response :as resp]
             [noir.validation :as vali]
             [noir.util.crypt :as crypt]
-            [detra.db.core :as db]))
+            [dinar.db.core :as db]))
 
 (defn valid? [id pass pass1]
   (vali/rule (vali/has-value? id)

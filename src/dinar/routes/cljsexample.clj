@@ -1,6 +1,6 @@
-(ns detra.routes.cljsexample
+(ns dinar.routes.cljsexample
   (:require [compojure.core :refer :all]
-            [detra.layout :as layout]))
+            [dinar.layout :as layout]))
 
 (def messages
   (atom 

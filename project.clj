@@ -1,8 +1,8 @@
 (defproject
-  detra
+  dinar
   "0.1.0-SNAPSHOT"
   :repl-options
-  {:init-ns detra.repl}
+  {:init-ns dinar.repl}
   :dependencies
   [[ring-server "0.3.1"]
    [com.h2database/h2 "1.3.175"]
@@ -34,9 +34,9 @@
       :output-to "resources/public/js/site.js",
       :optimizations :advanced}}]}
   :ring
-  {:handler detra.handler/app,
-   :init detra.handler/init,
-   :destroy detra.handler/destroy}
+  {:handler dinar.handler/app,
+   :init dinar.handler/init,
+   :destroy dinar.handler/destroy}
   :profiles
   {:uberjar {:aot :all},
    :production
@@ -48,7 +48,7 @@
   :url
   "http://example.com/FIXME"
   :main
-  detra.core
+  dinar.core
   :plugins
   [[lein-ring "0.8.10"]
    [lein-environ "0.5.0"]

@@ -1,7 +1,7 @@
-(ns detra.db.core
+(ns dinar.db.core
   (:use korma.core
         [korma.db :only (defdb)])
-  (:require [detra.db.schema :as schema]))
+  (:require [dinar.db.schema :as schema]))
 
 (defdb db schema/db-spec)
 

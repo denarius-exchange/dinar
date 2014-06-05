@@ -1,4 +1,4 @@
-(ns detra.middleware
+(ns dinar.middleware
   (:require [taoensso.timbre :as timbre]
             [selmer.parser :as parser]
             [environ.core :refer [env]]))

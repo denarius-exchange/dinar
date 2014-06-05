@@ -1,4 +1,4 @@
-(ns detra.db.schema
+(ns dinar.db.schema
   (:require [clojure.java.jdbc :as sql]
             [noir.io :as io]))
 

@@ -1,4 +1,4 @@
-(ns detra.util
+(ns dinar.util
   (:require [noir.io :as io]
             [markdown.core :as md]))
 

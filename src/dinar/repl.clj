@@ -1,5 +1,5 @@
-(ns detra.repl
-  (:use detra.handler
+(ns dinar.repl
+  (:use dinar.handler
         ring.server.standalone
         [ring.middleware file-info file]))
 

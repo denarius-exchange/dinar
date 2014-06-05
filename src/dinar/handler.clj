@@ -1,7 +1,7 @@
-(ns detra.handler
+(ns dinar.handler
   (:require [compojure.core :refer [defroutes GET]]
-            [detra.routes.home :refer [home-routes]]
-            [detra.middleware :as middleware]
+            [dinar.routes.home :refer [home-routes]]
+            [dinar.middleware :as middleware]
             [noir.util.middleware :refer [app-handler]]
             [noir.util.route :refer [restricted]]
             [noir.session :as session]
@@ -10,10 +10,10 @@
             [taoensso.timbre.appenders.rotor :as rotor]
             [selmer.parser :as parser]
             [environ.core :refer [env]]
-            [detra.layout :as layout]
-            [detra.routes.auth :refer [auth-routes]]
-            [detra.db.schema :as schema]
-            [detra.routes.cljsexample :refer [cljs-routes]]))
+            [dinar.layout :as layout]
+            [dinar.routes.auth :refer [auth-routes]]
+            [dinar.db.schema :as schema]
+            [dinar.routes.cljsexample :refer [cljs-routes]]))
 
 
 
@@ -41,16 +41,16 @@
      :fn rotor/appender-fn})
   (timbre/set-config!
     [:shared-appender-config :rotor]
-    {:path "detra.log", :max-size (* 512 1024), :backlog 10})
+    {:path "dinar.log", :max-size (* 512 1024), :backlog 10})
   (if (env :dev) (parser/cache-off!))
   (if-not (schema/initialized?) (schema/create-tables))
-  (timbre/info "detra started successfully"))
+  (timbre/info "dinar started successfully"))
 
 (defn destroy
   "destroy will be called when your application\r
    shuts down, put any clean up code here"
   []
-  (timbre/info "detra is shutting down..."))
+  (timbre/info "dinar is shutting down..."))
 
 (defn user-access [request]
   (session/get :user-id))

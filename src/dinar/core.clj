@@ -1,6 +1,6 @@
-(ns detra.core  
+(ns dinar.core
   (:require
-    [detra.handler :refer [app]]
+    [dinar.handler :refer [app]]
     [ring.middleware.reload :as reload]
     [org.httpkit.server :as http-kit]
     [taoensso.timbre :as timbre])

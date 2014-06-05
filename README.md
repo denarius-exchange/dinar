@@ -1,4 +1,4 @@
-# Detra
+# Dinar
 
 Denarius Trading Web Front End
 

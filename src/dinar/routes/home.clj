@@ -1,7 +1,7 @@
-(ns detra.routes.home
+(ns dinar.routes.home
   (:use compojure.core)
-  (:require [detra.layout :as layout]
-            [detra.util :as util]))
+  (:require [dinar.layout :as layout]
+            [dinar.util :as util]))
 
 (defn home-page []
   (layout/render
